@@ -1,22 +1,25 @@
-let current = document.getElementById("timer");
-current.innerText = "Время";
+// при старте счетчика times() в первую секунду возникает 1,затем обратный отсчет нормальный, для очистки сделал ф-ю с clearInterval.
 
-let sec = 60;
-current.innerText = f();
-
-function f() {
-  // при старте счетчика times() в первую секунду возникает 1,
-  //затем обратный отсчет нормальный, для очистки сделал ф-ю с clearInterval, но это неправильно...
+/*function f() {
+  // функция для очистки clearInterval, вместо 1 будет underfind, но это неправильно...
   clearInterval(current.innerText);
   setInterval(times, 1000);
-}
+}*/
+
+let current = document.getElementById("timer");
+
+let sec = new Date();
+sec = sec.getSeconds();
+console.log(sec);
+
+current.innerText = setInterval(times, 1000);
 
 function times() {
-  if (sec) {
+  if (sec > 0) {
     sec--;
-  } else {
-    return;
+    current.innerText = sec;
+  } else if (sec == 0) {
+    alert("Вы победили в конкурсе!");
   }
   console.log(sec);
-  return (current.innerText = sec);
 }
