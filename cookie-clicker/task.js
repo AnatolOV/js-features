@@ -1,5 +1,13 @@
-let counter = document.querySelector("#clicker__counter");
+const counter = document.querySelector("#clicker__counter");
 
-let cake = document.querySelector("#cookie");
+const cake = document.querySelector("#cookie");
+const imgCake = document.getElementById("cookie");
 
-cake.onclick = () => counter.innerText++;
+cake.onclick = () => {
+  counter.innerText++;
+  if (counter.innerText % 2 != 0) {
+    imgCake.style.width = "300px";
+  } else {
+    imgCake.style.width = "200px";
+  }
+};

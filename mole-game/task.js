@@ -13,14 +13,15 @@ for (let i = 1; i < 10; i++) {
     }
 
     if (countW == 10 && countF != -5) {
-      countW = 0;
-      countF = 0;
-      return alert("Вы победили!");
+      showMessage("Вы победили!");
     } else if (countF == -5) {
-      countW = 0;
-      countF = 0;
-      return alert("GAME OVER");
+      showMessage("GAME OVER");
     }
-    console.log(countW, countF);
   };
+}
+
+function showMessage(a) {
+  countW = 0;
+  countF = 0;
+  return alert(a);
 }

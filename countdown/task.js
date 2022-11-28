@@ -6,13 +6,14 @@
   setInterval(times, 1000);
 }*/
 
-let current = document.getElementById("timer");
+const current = document.getElementById("timer");
 
 let sec = new Date();
 sec = sec.getSeconds();
 console.log(sec);
 
 current.innerText = setInterval(times, 1000);
+setTimeout(() => {clearInterval(current.innerText); alert("stop")}, 3000);
 
 function times() {
   if (sec > 0) {
@@ -20,6 +21,7 @@ function times() {
     current.innerText = sec;
   } else if (sec == 0) {
     alert("Вы победили в конкурсе!");
+    
   }
   console.log(sec);
 }
